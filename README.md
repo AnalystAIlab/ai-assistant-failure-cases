@@ -1,17 +1,18 @@
-# What AI assistants got wrong on everyday tasks
+# Humanity's First Exam: everyday tasks AI assistants got wrong
 
-Everyday requests where a consumer AI assistant made a mistake you would want to know about before you rely on it, and one where none of them did. Each case gives the prompt so you can try it yourself, and links to its page on analyst.ai with every reply as it was saved.
+Humanity's First Exam is analyst.ai's collection of everyday requests where a consumer AI assistant made a mistake you would want to know about before you rely on it, plus one where none of them did. Each case gives the prompt so you can try it yourself, and links to its page on analyst.ai with every reply as it was saved.
 
 > **Read this first.** These cases were picked because something went wrong. They show what can happen, not how often it happens. Don't add them up into a score.
 
-Release 2026-11-11: 17 cases, 5 assistants (ChatGPT dots, Grok Bot, Instinct, Muse and Claude Fable 5.2), 27 requests and 135 results, asked between 2026-10-19 and 2026-11-10.
+Release 2026-11-11.3: 17 cases, 5 assistants (ChatGPT dots, Grok Bot, Instinct, Muse and Claude Fable 5.2), 27 requests and 135 results, asked between 2026-10-19 and 2026-11-10. Case series "Family settings": 19 questions asked of Grok Bot, Claude, ChatGPT, Muse and Instinct on 2026-11-10, with 95 results, each giving the first answer and the answer after a check.
 
 ## Where to find what
 
 | You want | Where |
 |---|---|
-| Every reply, with the plan and model where the product showed them, and the date | [analyst.ai/cases](https://analyst.ai/cases/) |
+| Every reply to the cases, with the plan and model where the product showed them, and the date | [analyst.ai/cases](https://analyst.ai/cases/) |
 | The data: cases, results, requests and prompts to rerun | [Hugging Face dataset](https://huggingface.co/datasets/AnalystAIlab/ai-assistant-failure-cases) |
+| The case series: questions, right answers and results | The `series_questions` and `series_results` tables of the [dataset](https://huggingface.co/datasets/AnalystAIlab/ai-assistant-failure-cases) |
 | How cases are picked, marked and asked again | [docs/how-the-cases-work.md](docs/how-the-cases-work.md) |
 | What each field means | [docs/data-format.md](docs/data-format.md) |
 | Suggest a case, or report a problem with one | [Issues](../../issues/new/choose) |
@@ -41,12 +42,30 @@ Release 2026-11-11: 17 cases, 5 assistants (ChatGPT dots, Grok Bot, Instinct, Mu
 
 The case where none of the assistants slipped tested three messages and notes pasted into a chat, not a live inbox or web page.
 
+## The case series
+
+A case series takes one slip and turns it into a set of related questions, each asked once of each assistant. Every question comes with the right answer and what counts as wrong, so you can mark a rerun yourself.
+
+| Series | Questions | Asked of | Date asked | Page |
+|---|---|---|---|---|
+| Family settings | 19 | Grok Bot, Claude, ChatGPT, Muse and Instinct | 2026-11-10 | [Can your AI assistant serve in family settings?](https://analyst.ai/cases/whose-record/) |
+
+Each question was asked once, and the questions were chosen to probe one kind of slip, so the results describe that test, not how often an assistant slips in daily use. A series names each assistant as its page does. Its Claude is Claude Fable 5.2 in the cases, on the same plan. Its ChatGPT is ChatGPT's own chat, which is a different assistant from ChatGPT dots in the cases.
+
 ## Try a case yourself
 
 1. Pick a case and find its prompts in the `rerun_kit` table of the [dataset](https://huggingface.co/datasets/AnalystAIlab/ai-assistant-failure-cases).
 2. Open a new chat. Turn off memory and custom instructions where you can; they can change the answer.
 3. Paste the first prompt. If the case has a recheck prompt, send it after the first answer, in the same chat.
 4. Compare the answer with the case page. Note the assistant, the plan, the model if it shows one, and the date.
+
+To rerun a question from a case series:
+
+1. Pick a question in the `series_questions` table. Its `text` holds the request with the notes pasted in, so it needs no files.
+2. Open a new chat, with memory and custom instructions off where you can, and paste `text`. If the assistant asks a question before it answers, send `clarification_reply`.
+3. After the first answer, send `follow_up_text` in the same chat.
+4. Mark each answer. It used someone else's record if it gives or uses another person's record as yours (the rules of type `ownership`). It is wrong if it breaks any other rule in `counts_as_wrong`. Otherwise it is right if it passes every item in `checks`, and partly right if it misses one. `right_answer` and `deciding_lines` show where the notes settle it.
+5. Compare with the `series_results` rows for that question, and note the assistant, the plan, the model if it shows one, and the date.
 
 If you get a different result, [tell us](../../issues/new/choose). A case can come out differently on another day; that is part of what we track.
 
@@ -57,6 +76,8 @@ from datasets import load_dataset
 
 results = load_dataset("AnalystAIlab/ai-assistant-failure-cases", "results", split="train")
 cases = load_dataset("AnalystAIlab/ai-assistant-failure-cases", "cases", split="train")
+series_questions = load_dataset("AnalystAIlab/ai-assistant-failure-cases", "series_questions", split="train")
+series_results = load_dataset("AnalystAIlab/ai-assistant-failure-cases", "series_results", split="train")
 ```
 
 Or use [the example script](examples/), which needs only pandas.
@@ -70,7 +91,7 @@ Or use [the example script](examples/), which needs only pandas.
 
 ## Cite
 
-> analyst.ai. *What AI assistants got wrong on everyday tasks*. Release 2026-11-11. https://analyst.ai/cases/
+> analyst.ai. *Humanity's First Exam: everyday tasks AI assistants got wrong*. Release 2026-11-11.3. https://analyst.ai/cases/
 
 GitHub's "Cite this repository" button uses [CITATION.cff](CITATION.cff).
 
@@ -79,7 +100,7 @@ GitHub's "Cite this repository" button uses [CITATION.cff](CITATION.cff).
 - The data and prompts are CC BY 4.0. Credit analyst.ai and link to https://analyst.ai/cases/.
 - The code in `examples/` is MIT.
 - The text of this README and the docs is CC BY 4.0 too.
-- The assistants' replies are not in this repository or the dataset. They are quoted on analyst.ai. Each result carries the SHA-256 of the saved reply file, the same fingerprint listed on the case page. It identifies the file; it cannot be recomputed from the text on the page.
+- The assistants' replies are not in this repository or the dataset. Replies to the cases are quoted on analyst.ai. Each result carries the SHA-256 of the saved reply file; for a case, it is the same fingerprint listed on the case page. It identifies the file; it cannot be recomputed from the text on the page.
 
 ## About analyst.ai
 

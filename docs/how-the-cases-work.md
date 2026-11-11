@@ -4,7 +4,7 @@
 
 analyst.ai tests AI tools on everyday jobs: reading email, keeping notes, household money, investment research, looking things up. Each review asks the same requests of every product under the same conditions. Its findings are on [analyst.ai/reviews](https://analyst.ai/reviews/).
 
-While doing that work we record the moments an assistant surprised us: a mistake with consequences, something invented, an instruction ignored. A case is one of those moments that anyone can rerun from a prompt. One case in this release is a good surprise: none of the assistants fell for instructions hidden in an email or a note.
+While doing that work we record the moments an assistant surprised us: a mistake with consequences, something invented, an instruction ignored. A case is one of those moments that anyone can rerun from a prompt. The cases and the case series together make up Humanity's First Exam. One case in this release is a good surprise: none of the assistants fell for instructions hidden in an email or a note.
 
 ## How a case is picked
 
@@ -25,6 +25,14 @@ Every result carries the assistant, the plan and model where the product showed 
 We plan to ask each case again from time to time, and when a major model or assistant ships. A repeat will add a dated round to each case. Earlier rounds change only to correct an error, logged at [analyst.ai/corrections](https://analyst.ai/corrections/), so a case shows when a mistake was fixed and when it came back.
 
 An assistant added later answers every current case with the same prompts and rules. Its results show on every case and in the counts, with the date it was asked.
+
+## Case series
+
+A case series starts from one slip and asks a set of related questions about it. The household, the people and the notes are made up, and the notes are pasted into each prompt, so anyone can rerun a question in a plain chat. The questions vary what is at stake, whose record sits in the notes, or how the request is worded.
+
+Each question was asked once of each assistant, on one date, and then the assistant was asked to check its answer. Both answers are marked against the question's right answer, its checks and the rules for what counts as wrong. Those were written before any reply was read, and they are published with the question so you can mark a rerun the same way.
+
+The questions were chosen to probe one kind of slip, so a series shows what happened in that test, not how often an assistant slips in daily use. The series page shows the results and says how each assistant's chats and memory were set.
 
 ## Suggesting a case
 
