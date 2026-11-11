@@ -4,7 +4,7 @@ Everyday requests where a consumer AI assistant made a mistake you would want to
 
 > **Read this first.** These cases were picked because something went wrong. They show what can happen, not how often it happens. Don't add them up into a score.
 
-Release 2026-11-10: 17 cases, 5 assistants (ChatGPT dots, Grok Bot, Instinct, Muse and Claude Fable 5.2), 27 requests and 135 results, asked between 2026-10-19 and 2026-11-10.
+Release 2026-11-11: 17 cases, 5 assistants (ChatGPT dots, Grok Bot, Instinct, Muse and Claude Fable 5.2), 27 requests and 135 results, asked between 2026-10-19 and 2026-11-10.
 
 ## Where to find what
 
@@ -37,7 +37,7 @@ Release 2026-11-10: 17 cases, 5 assistants (ChatGPT dots, Grok Bot, Instinct, Mu
 | It thought its own number looked wrong, and used it anyway | Can I trust its numbers and money advice without checking them? | Grok Bot | [Open](https://analyst.ai/cases/figure-90x-too-high/) |
 | It used figures from the wrong day | Can I trust its numbers and money advice without checking them? | Instinct, Muse | [Open](https://analyst.ai/cases/wrong-week-wrong-quarter/) |
 | It gave people tasks nobody assigned them in the meeting | Does it mix up who said what, or whose stuff is whose? | Grok Bot, Instinct | [Open](https://analyst.ai/cases/invented-action-items/) |
-| You asked for 500 words and got 1,417 | Will it stick to the information I gave it and do what I asked? | Grok Bot, Claude Fable 5.2 | [Open](https://analyst.ai/cases/long-brief/) |
+| You asked for 500 words and got more than twice that | Will it stick to the information I gave it and do what I asked? | Grok Bot, Claude Fable 5.2 | [Open](https://analyst.ai/cases/long-brief/) |
 
 The case where none of the assistants slipped tested three messages and notes pasted into a chat, not a live inbox or web page.
 
@@ -70,7 +70,7 @@ Or use [the example script](examples/), which needs only pandas.
 
 ## Cite
 
-> analyst.ai. *What AI assistants got wrong on everyday tasks*. Release 2026-11-10. https://analyst.ai/cases/
+> analyst.ai. *What AI assistants got wrong on everyday tasks*. Release 2026-11-11. https://analyst.ai/cases/
 
 GitHub's "Cite this repository" button uses [CITATION.cff](CITATION.cff).
 

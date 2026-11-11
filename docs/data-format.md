@@ -1,6 +1,6 @@
 # Data format
 
-The data lives in the [Hugging Face dataset](https://huggingface.co/datasets/AnalystAIlab/ai-assistant-failure-cases) as four JSON Lines tables. They join on `case_id` and `request_id`. This page describes release 2026-11-10.
+The data lives in the [Hugging Face dataset](https://huggingface.co/datasets/AnalystAIlab/ai-assistant-failure-cases) as four JSON Lines tables. They join on `case_id` and `request_id`. This page describes release 2026-11-11.
 
 ## cases
 
