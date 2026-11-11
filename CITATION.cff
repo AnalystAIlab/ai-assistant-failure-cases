@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use these cases, please cite them as below."
+type: dataset
+title: "What AI assistants got wrong on everyday tasks"
+version: "2026-11-09"
+date-released: "2026-11-09"
+authors:
+  - name: "analyst.ai"
+    website: "https://analyst.ai"
+url: "https://analyst.ai/cases/"
+repository-code: "https://github.com/AnalystAIlab/ai-assistant-failure-cases"
+repository-artifact: "https://huggingface.co/datasets/AnalystAIlab/ai-assistant-failure-cases"
+license: CC-BY-4.0
+abstract: "Everyday requests where consumer AI assistants made mistakes worth knowing about, with the prompts to rerun them and results that carry the assistant, the plan and model where shown, and the date. A selection of cases, not a failure rate."
+keywords:
+  - AI assistants
+  - evaluation
+  - failure cases
+  - reliability

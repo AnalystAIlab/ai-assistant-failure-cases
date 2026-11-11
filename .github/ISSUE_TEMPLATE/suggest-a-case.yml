@@ -1,0 +1,54 @@
+name: Suggest a case
+description: An everyday request where an AI assistant got something wrong that matters.
+title: "Case: "
+labels: ["suggested case"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We take cases about assistants and AI tools a person can buy and use today, on tasks we can run ourselves. Issues here are public. We test every suggestion before publishing it and write the published case ourselves, and we don't name the person who suggested it in what we publish.
+
+        Use made-up details only. Don't paste personal information, account data or anything confidential. Describe what the assistant said in your own words rather than pasting its reply.
+  - type: input
+    id: assistant
+    attributes:
+      label: Assistant or tool
+      description: The product, the plan, and the model if it shows one.
+      placeholder: "e.g. ChatGPT, Plus plan, model not shown"
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Date you asked
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: The prompt
+      description: Exactly what you sent, so someone else can paste it. Include any recheck you sent afterwards.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What went wrong
+      description: What the answer said, in your own words, and why it matters for the job you were doing.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What a right answer would have done
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Before you send
+      options:
+        - label: The prompt contains no personal, account or confidential information.
+          required: true
+        - label: I wrote everything I submit here, and I license it to analyst.ai under CC BY 4.0.
+          required: true

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Every case, with the replies in full
+    url: https://analyst.ai/cases/
+    about: Read each case and every assistant's reply on analyst.ai.
+  - name: Corrections log
+    url: https://analyst.ai/corrections/
+    about: Published corrections, with their dates.

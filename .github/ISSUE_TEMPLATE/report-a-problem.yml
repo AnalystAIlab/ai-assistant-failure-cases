@@ -1,0 +1,27 @@
+name: Report a problem with a case
+description: A result, a prompt or a description that looks wrong.
+title: "Problem: "
+labels: ["correction"]
+body:
+  - type: input
+    id: case
+    attributes:
+      label: Case
+      description: The case page address or its case_id.
+      placeholder: "https://analyst.ai/cases/..."
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What looks wrong
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What shows it
+      description: A rerun with its assistant, plan, model and date, a source, or the field and row in the data.
+  - type: markdown
+    attributes:
+      value: Corrections are logged with their date at https://analyst.ai/corrections/.
