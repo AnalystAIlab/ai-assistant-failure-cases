@@ -24,7 +24,7 @@ Every result carries the assistant, the plan and model where the product showed 
 
 We plan to ask each case again from time to time, and when a major model or assistant ships. A repeat will add a dated round to each case. Earlier rounds change only to correct an error, logged at [analyst.ai/corrections](https://analyst.ai/corrections/), so a case shows when a mistake was fixed and when it came back.
 
-An assistant added later will answer every current case with the same prompts and rules. Its results will show on every case, but it stays out of comparisons until a round asks all the assistants.
+An assistant added later answers every current case with the same prompts and rules. Its results show on every case and in the counts, with the date it was asked.
 
 ## Suggesting a case
 

@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use these cases, please cite them as below."
 type: dataset
 title: "What AI assistants got wrong on everyday tasks"
-version: "2026-11-09"
-date-released: "2026-11-09"
+version: "2026-11-10"
+date-released: "2026-11-10"
 authors:
   - name: "analyst.ai"
     website: "https://analyst.ai"

@@ -1,6 +1,6 @@
 # Data format
 
-The data lives in the [Hugging Face dataset](https://huggingface.co/datasets/AnalystAIlab/ai-assistant-failure-cases) as four JSON Lines tables. They join on `case_id` and `request_id`. This page describes release 2026-11-09.
+The data lives in the [Hugging Face dataset](https://huggingface.co/datasets/AnalystAIlab/ai-assistant-failure-cases) as four JSON Lines tables. They join on `case_id` and `request_id`. This page describes release 2026-11-10.
 
 ## cases
 
@@ -39,7 +39,7 @@ One row per case, request and assistant in each round.
 | `assistant` | string | The product |
 | `plan_and_model_shown` | string | The plan and model as the product showed them, from the source review's product list |
 | `asked_on` | date | The date the request was sent |
-| `outcome` | string | `mistake_seen`: the reply made the mistake the case describes. `no_mistake_seen`: it did not. `no_answer`: no reply arrived within the time allowed |
+| `outcome` | string | `mistake_seen`: the reply made the mistake the case describes. `no_mistake_seen`: it did not. `no_answer`: no reply arrived within the time allowed. `not_tested`: we could not test this request with this assistant |
 | `note` | string or null | Anything that affects how to read the reply, such as a line our tester added when saving it |
 | `reply_sha256` | list of strings | SHA-256 of each saved reply file, the fingerprint listed on the case page. A reply saved in parts has several; `no_answer` has none. It identifies the file; it cannot be recomputed from the page text |
 | `follow_up_reply_sha256` | string or null | SHA-256 of the reply to the recheck, where one was sent |
